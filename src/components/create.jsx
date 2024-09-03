@@ -24,8 +24,6 @@ export const NoteCreate = () => {
     setPhone("");
     setCity("");
     router.refresh();
-
-    alert("new data savedd..");
   }
   return (
     <div className="container flex max-w-md flex-col gap-2 px-5 py-5">
