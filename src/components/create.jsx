@@ -49,7 +49,7 @@ export const NoteCreate = () => {
           // console.log(gender);
         }}
       >
-        <option selected>Choice Gender</option>
+        <option value="">Choice Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
