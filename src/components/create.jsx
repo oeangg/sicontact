@@ -1,49 +1,82 @@
-export const CreateContact = () => {
-  return (
-    <form
-      action=""
-      className="container flex h-fit max-w-lg flex-col items-center gap-4 py-10"
-    >
-      <div className="flex w-full max-w-sm flex-col">
-        <label htmlFor="nama">Name : </label>
-        <input
-          name="name"
-          type="text"
-          className="input-text"
-          placeholder="Input nama"
-        />
-      </div>
-      <div className="flex w-full max-w-sm flex-col">
-        <label htmlFor="genders">Gender : </label>
-        <select name="genders" id="genders">
-          <option value="pria">Men</option>
-          <option value="pria">Women</option>
-        </select>
-      </div>
-      <div className="flex w-full max-w-sm flex-col">
-        <label htmlFor="kota">City : </label>
-        <input
-          name="city"
-          type="text"
-          className="input-text"
-          placeholder="Input kota"
-        />
-      </div>
-      <div className="flex w-full max-w-sm flex-col">
-        <label htmlFor="nohp">Phone Number : </label>
-        <input
-          name="phone"
-          type="text"
-          className="input-text"
-          placeholder="Input no handphone"
-        />
-      </div>
+"use client";
 
-      <div className="group w-full max-w-sm">
-        <button className="duration-300 group-hover:bg-emerald-500">
-          Add to Contact
-        </button>
-      </div>
-    </form>
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+
+export const NoteCreate = () => {
+  const [name, setNama] = useState("");
+  const [gender, setGender] = useState("");
+  const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
+  const router = useRouter();
+
+  async function handleAddNote() {
+    await fetch("https://v1.appbackend.io/v1/rows/4CBZlmClgygT", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([{ name, gender, phone, city }]),
+    });
+
+    setNama("");
+    setGender("");
+    setPhone("");
+    setCity("");
+    router.refresh();
+
+    alert("new data savedd..");
+  }
+  return (
+    <div className="container flex max-w-md flex-col gap-2 px-5 py-5">
+      <div></div>
+      <input
+        name="name"
+        id="name"
+        placeholder="Name"
+        className="input-text"
+        onChange={(e) => {
+          setNama(e.target.value);
+        }}
+      ></input>
+
+      <select
+        name="gender"
+        id="gender"
+        className="input-text lec bg-transparent"
+        onChange={(e) => {
+          setGender(e.target.value);
+          // console.log(gender);
+        }}
+      >
+        <option selected>Choice Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <input
+        name="phone"
+        id="phone"
+        placeholder="Phone Number"
+        className="input-text"
+        type="tel"
+        onChange={(e) => {
+          setPhone(e.target.value);
+        }}
+      ></input>
+      <input
+        name="city"
+        id="city"
+        placeholder="City "
+        className="input-text"
+        onChange={(e) => {
+          setCity(e.target.value);
+        }}
+      ></input>
+
+      <button className="button-primary" onClick={handleAddNote}>
+        Add to Contact
+      </button>
+    </div>
   );
 };
