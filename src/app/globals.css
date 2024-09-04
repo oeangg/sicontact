@@ -33,7 +33,7 @@ body {
 
 @layer components {
   .input-text {
-    @apply border-b-2 border-blue-100 bg-white text-lg font-semibold text-blue-400 placeholder-blue-100 placeholder:font-medium focus:border-blue-300 focus:outline-none;
+    @apply border-b-2 border-blue-100 bg-white text-lg font-medium text-blue-400 placeholder-blue-100 placeholder:font-medium focus:border-blue-300 focus:outline-none;
   }
 
   .button-primary {

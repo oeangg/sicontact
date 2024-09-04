@@ -20,7 +20,7 @@ export const CardContact = ({ id, name, gender, city, phone }) => {
   }
 
   return (
-    <div className="group flex h-28 w-4/5 flex-row items-center justify-between gap-4 rounded-lg px-5 py-2 duration-300 hover:border-blue-200 hover:bg-blue-100">
+    <div className="group flex h-28 w-4/5 flex-row items-center justify-between gap-3 rounded-lg px-2 py-2 duration-300 hover:border-blue-200 hover:bg-blue-100">
       <Image
         src={gender === "male" ? "/user-boy.png" : "/user-girl.png"}
         width={64}
@@ -30,7 +30,7 @@ export const CardContact = ({ id, name, gender, city, phone }) => {
       />
 
       <div className="flex w-full flex-col justify-start">
-        <h1 className="w-full text-lg font-semibold text-blue-400 group-hover:text-blue-500">
+        <h1 className="w-full text-base font-medium text-blue-400 group-hover:text-blue-500">
           {name}
         </h1>
         <h2 className="w-full text-base font-normal text-blue-300 group-hover:text-blue-400">

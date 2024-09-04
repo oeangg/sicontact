@@ -1,5 +1,3 @@
-import dynamic from "next/dynamic";
-
 export default async function GetData() {
   try {
     const respon = await fetch(

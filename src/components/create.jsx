@@ -25,6 +25,7 @@ export const NoteCreate = () => {
     setCity("");
     router.refresh();
   }
+  
   return (
     <div className="container flex max-w-md flex-col gap-2 px-5 py-5">
       <div></div>
